@@ -18,7 +18,10 @@ do
     	egrep "^$username" /etc/passwd >/dev/null
     	if [ $? -eq 0 ]; then
     		userdel -r $username
-    	else
+    		
+		# deleting username from /etc/vsftpd.userlist
+		sed -i -e "/${username}/d" /etc/vsftpd.userlist
+	else
                 echo "There is no user with username $username"
     		continue
     	fi
