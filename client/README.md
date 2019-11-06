@@ -8,19 +8,21 @@ and create a local folder and keep syncing it in a `cron` job.
 
 1. First, place `ftp-validator.sh` inside `/opt/icpc/` folder:
 
-```sh
-sudo mkdir /opt/icpc; sudo mv ftp-validator.sh /opt/icpc/
-```
-
 2. Place `lftp.sh` also inside `/opt/icpc/`:
-```sh
-sudo mv lftp.sh /opt/icpc/
-```
-​	in this script you should define **the folder in which user must save their codes**.
+
+​	in this script, you should define **the folder in which user must save their codes**(variable FTPDIR).
 
 3. Just a bit after that you must place the validator's executor inside Users **Desktop** so they can access it easily.
 
    To do so, move `ftp-activator.sh` to `/opt/icpc`. Then just place `login.sh` file on user's desktop. 
+
+   ```sh
+   sudo mkdir /opt/icpc; sudo mv ftp-validator.sh /opt/icpc/
+   sudo mv lftp.sh /opt/icpc/
+   sudo mv ftp-activator.sh /opt/icpc/ && mv login.sh ${HOME}/Desktop/
+   ```
+
+   
 
    **Don't forget to change nautilus's default behavior towards executable text files**
 
@@ -33,8 +35,8 @@ crontab -e
 ​	Then you see your a file opened in your editor which you must add your job:
 
 ```sh
-* * * * * /home/smf8/temp/lftp.sh 1>> ${HOME}/ftp.success 2>> ${HOME}/ftp.fail
-* * * * * (sleep 30; /home/smf8/temp/lftp.sh 1>> ${HOME}/ftp.success 2>> ${HOME}/ftp.fail)
+* * * * * /opt/icpc/lftp.sh 1>> ${HOME}/ftp.success 2>> ${HOME}/ftp.fail
+* * * * * (sleep 30; /opt/icpc/lftp.sh 1>> ${HOME}/ftp.success 2>> ${HOME}/ftp.fail)
 ```
 
 ​	Now we have ourselves a fully functional FTP server  :yum:

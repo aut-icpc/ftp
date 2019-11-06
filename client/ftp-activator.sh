@@ -4,7 +4,7 @@ read -p "Please enter your username in format team-###: " USERNAME
 
 read -p "Enter Password: " PASSWORD
 
-/opt/ftpvalidator.sh ${USERNAME} ${PASSWORD}
+/opt/icpc/ftp-validator.sh ${USERNAME} ${PASSWORD}
 
 if [[ ${?} -ne 0 ]]
 then
