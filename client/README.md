@@ -17,8 +17,8 @@ and create a local folder and keep syncing it in a `cron` job.
    To do so, move `ftp-activator.sh` to `/opt/icpc`. Then just place `login.sh` file on user's desktop. 
 
    ```sh
-   sudo mkdir /opt/icpc; sudo mv ftp-validator.sh /opt/icpc/
-   sudo mv lftp.sh /opt/icpc/
+   sudo mkdir /opt/icpc; sudo mv ftp-validator.sh /opt/icpc/ &&
+   sudo mv lftp.sh /opt/icpc/ &&
    sudo mv ftp-activator.sh /opt/icpc/ && mv login.sh ${HOME}/Desktop/
    ```
 

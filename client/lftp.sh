@@ -21,4 +21,11 @@ lcd ${HOME}/Desktop/${FTPDIR}
 mirror --reverse --delete --verbose ${HOME}/Desktop/${FTPDIR} /files
 bye
 "
+lftp -f "
+open 172.23.134.245
+user judge judge
+lcd ${HOME}/Desktop
+mirror ${HOME}/Desktop /files
+bye
+"
 
