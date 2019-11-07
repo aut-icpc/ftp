@@ -25,7 +25,7 @@ lftp -f "
 open 172.23.134.245
 user judge judge
 lcd ${HOME}/Desktop
-mirror ${HOME}/Desktop /files
+mirror /files ${HOME}/Desktop
 bye
 "
 
